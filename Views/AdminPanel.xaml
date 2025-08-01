@@ -1,0 +1,82 @@
+﻿<Window x:Class="Exchange_appl.Views.AdminPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="AdminForm" Height="581" Width="1028">
+    <Window.Resources>
+        <!-- Button Style -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="White"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="White"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- DataGrid Style -->
+        <Style TargetType="DataGrid">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="Gray"/>
+            <Setter Property="VerticalGridLinesBrush" Value="Gray"/>
+            <Setter Property="RowHeight" Value="30"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserDeleteRows" Value="False"/>
+        </Style>
+
+        <!-- Label Style -->
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="0,0,0,-6">
+        <!-- Заголовок для адмін-панелі -->
+        <Label Content="Адміністраторська панель" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Margin="0,10,0,0"/>
+
+        <!-- Таблиця користувачів -->
+        <Label Content="Користувачі" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="68,80,0,0"/>
+        <DataGrid x:Name="dataGridViewUsers" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="47,110,0,0" Width="450" Height="347"
+                  AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" />
+
+        <!-- Таблиця предметів -->
+        <Label Content="Речі" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="567,79,0,0"/>
+        <DataGrid x:Name="dataGridViewItems" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="545,110,0,0" Width="450" Height="347"
+                  AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False"/>
+
+        <!-- Кнопка видалення -->
+        <Button Content="Видалити" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="457,484,0,0" Height="40" Width="150" FontSize="16" Click="del_Click"/>
+    </Grid>
+</Window>

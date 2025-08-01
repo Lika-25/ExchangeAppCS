@@ -1,0 +1,137 @@
+﻿<Window x:Class="Exchange_appl.Views.LoginForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Login" Height="450" Width="800">
+    <Window.Resources>
+        <!-- Button Style -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <!-- Палец при наведении -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Триггер для изменения фона при наведении -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="White"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="White"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- TextBox Style -->
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Cursor" Value="IBeam"/>
+            <!-- Курсор для текстбокса -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="5">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Триггер для изменения цвета фона при наведении -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#F0F0F0"/>
+                                <!-- Светло-серый фон -->
+                                <Setter TargetName="border" Property="BorderBrush" Value="DarkGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- PasswordBox Style -->
+        <Style TargetType="PasswordBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Cursor" Value="IBeam"/>
+            <!-- Курсор для поля пароля -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="5">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Триггер для изменения цвета фона при наведении -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#F0F0F0"/>
+                                <!-- Светло-серый фон -->
+                                <Setter TargetName="border" Property="BorderBrush" Value="DarkGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <!-- Разметка для окна входа -->
+        <Label Content="Введіть ваші дані" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Margin="0,10,0,0"/>
+
+        <!-- Поле ввода номера телефона -->
+        <Label Content="Номер телефону:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="230,120,0,0"/>
+        <TextBox x:Name="PhoneNumberTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="420,120,0,0" Width="200" Text="+380"/>
+
+        <!-- Поле для ввода пароля -->
+        <Label Content="Пароль:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="230,170,0,0"/>
+        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="420,170,0,0" Width="200"/>
+        <TextBox x:Name="PasswordTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="420,170,0,0" Width="200" Visibility="Collapsed"/>
+
+        <!-- Кнопка для переключения видимости пароля -->
+        <Button Content="👁" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="630,170,0,0" Width="30" Click="TogglePasswordVisibility"/>
+
+        <!-- Кнопка входу -->
+        <Button Content="Увійти" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,250,0,0" Click="LoginButton_Click" Height="40" Width="150"/>
+
+        <!-- Напис "Забули пароль?" -->
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,300,0,0" FontSize="14" Foreground="Blue">
+            <Hyperlink Click="ForgotPassword_Click">
+                Забули пароль?
+            </Hyperlink>
+        </TextBlock>
+    </Grid>
+</Window>

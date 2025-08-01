@@ -1,0 +1,76 @@
+﻿<Window x:Class="Exchange_appl.Views.WelcomeForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Welcome" Height="450" Width="800">
+    <Window.Resources>
+        <!-- Button Style -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <!-- Add cursor style for the hand icon -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="White"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="White"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid x:Name="WelcomeForm1">
+        <Label Content="Ласкаво просимо!" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Top" 
+               FontSize="16" 
+               Margin="0,50,0,0" />
+
+        <Button Name="entryButton" 
+                Content="Увійти" 
+                Width="200" 
+                Height="40" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center"
+                Click="entry_Click" />
+
+        <Button Name="registrationButton" 
+                Content="Зареєструватися" 
+                Width="200" 
+                Height="40" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Top" 
+                Margin="0,252,0,0"
+                Click="registration_Click" />
+
+        <Button Name="adminButton" 
+                Content="Admin" 
+                Width="60" 
+                Height="35" 
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Bottom"
+                Margin="0,0,10,10"
+                Click="admin_Click" />
+    </Grid>
+</Window>

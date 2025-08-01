@@ -1,0 +1,55 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+*.exe
+*.dll
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# Logs
+*.log
+
+# Others
+*.cache
+*.db
+*.pidb
+*.pdb
+*.mdb
+
+# Publish
+publish/
+
+# NuGet packages
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# DotCover
+.idea/.dotCover
+
+# Test results
+TestResults/
+
+# Temporary files
+*.tmp
+*.bak
+
+# Global JetBrains Rider settings
+.idea/
+
+# Ignore database config if any
+appsettings.*.json
+
+
+*.deps.json
+*.runtimeconfig.json
