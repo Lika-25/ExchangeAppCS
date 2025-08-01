@@ -1,64 +1,61 @@
 ExchangeAppCS
-ExchangeAppCS — это приложение для обмена вещами между пользователями, разработанное на C# с использованием WPF и архитектуры MVVM.
+ExchangeAppCS — a user-friendly desktop application for managing the exchange of personal items. Built with C# and WPF using the MVVM pattern, it facilitates easy item listing, browsing, and secure exchange offers between users.
 
-Overview
-This application is a platform that allows users to create offers for exchanging personal items. Each user can list items they own and specify which items they are willing to exchange for. If there are exchange offers for an item, the user can view and select from those offers.
+🚀 Features
+User Authentication: Register and log in with phone number and password.
 
-The program provides a convenient interface to search, view, and manage items and exchange requests, facilitating efficient interaction between users.
+Role-Based Access: Separate interfaces for clients and administrators.
 
-Features
-User Registration & Login: Users can register an account using phone number and password, then log in.
+Item Management: Add, edit, and delete your items for exchange.
 
-User Roles: Separate interfaces and permissions for clients and administrators.
+Exchange Offers: Create, view, accept, reject, or delete exchange proposals.
 
-Item Management: Users can add, edit, and delete their own items available for exchange.
+Advanced Filtering: Browse and filter items by categories.
 
-Exchange Offers: Users can view exchange offers on their items, create new offers, accept, reject, or delete existing ones.
+Notifications: Track and manage exchange requests and notifications.
 
-Item Browsing: Browse available items with filtering by category.
+Password Recovery: Reset your password using your registered phone number.
 
-Notifications: View and manage exchange requests and notifications.
+Admin Panel: Manage users and items — view, modify, or delete entries.
 
-Administrator Tools: Admins can manage users and items — view, edit, or delete records.
+Clean UI: Intuitive and modern interface optimized for user experience.
 
-Password Recovery: Reset password functionality via phone number.
+🏗️ Architecture Overview
+Client-Server Model: The client app connects to a server hosting a MySQL database.
 
-Clean and Intuitive UI: User-friendly navigation and modern interface.
+Database: Stores data in three main tables — users, items, and exchangeoffers.
 
-System Architecture
-Client-server architecture.
+Data Integrity: Foreign keys link users to items and exchange offers.
 
-The client app communicates with a server hosting a MySQL database.
+Entity Framework: Used for ORM within the MVVM design pattern for clean separation of concerns.
 
-Database tables: users, items, exchangeoffers.
+Real-Time Updates: Maintains data consistency and updates during exchanges.
 
-Uses Entity Framework for database operations within the MVVM pattern.
+📂 Database Structure
+Table Name	Description
+users	User details: ID, username, hashed password.
+items	Item details: ID, owner ID, name, description, category, image link, exchange category.
+exchangeoffers	Exchange requests: offered item ID, requested item ID, sender, receiver, status (new, accepted, rejected).
 
-Ensures data integrity with foreign key relationships between users, items, and exchange offers.
+🎯 How It Works
+Sign Up / Login: Create an account or log into an existing one.
 
-Database Structure
-users: stores user info — id, username, hashed password.
+Explore Items: Browse items available for exchange or filter by category.
 
-items: stores item info — id, owner user_id, name, description, category, image link, exchange category.
+Manage Your Items: Add, edit, or remove your items.
 
-exchangeoffers: stores exchange requests — offered item id, requested item id, sender, receiver, and status (new, accepted, rejected).
+Exchange Process: Create exchange proposals or respond to offers on your items.
 
-How to Use
-Register a new account or log in.
+Admin Controls: Admin users can oversee all users and items, managing the system’s integrity.
 
-Browse items available for exchange or manage your own items.
-
-Create exchange offers or respond to existing ones.
-
-Administrators manage the system users and items via dedicated interfaces.
-
-Technologies
+🛠️ Technologies Used
 C# with WPF
 
-MVVM design pattern
+MVVM Design Pattern
 
-MySQL database
+MySQL Database
 
 Entity Framework
 
-.NET Framework / .NET Core (specify your target)
+.NET Framework / .NET Core
+
