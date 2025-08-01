@@ -1,61 +1,48 @@
-ExchangeAppCS
-ExchangeAppCS — a user-friendly desktop application for managing the exchange of personal items. Built with C# and WPF using the MVVM pattern, it facilitates easy item listing, browsing, and secure exchange offers between users.
+# ExchangeAppCS
 
-🚀 Features
-User Authentication: Register and log in with phone number and password.
+**ExchangeAppCS** is a user-friendly desktop application for managing the exchange of personal items. Built with C# and WPF using the MVVM pattern, it simplifies listing, browsing, and exchanging items securely between users.
 
-Role-Based Access: Separate interfaces for clients and administrators.
+## Features
 
-Item Management: Add, edit, and delete your items for exchange.
+- User registration and login with phone number and password
+- Role-based access: Client and Administrator interfaces
+- Add, edit, and delete your own items for exchange
+- Create, view, accept, reject, and delete exchange offers
+- Filter items by categories for easy browsing
+- Notifications for exchange requests and updates
+- Password recovery using registered phone number
+- Administrator panel for managing users and items
+- Intuitive and clean user interface
 
-Exchange Offers: Create, view, accept, reject, or delete exchange proposals.
+## Architecture
 
-Advanced Filtering: Browse and filter items by categories.
+- Client-server architecture with a MySQL database backend
+- Three main database tables: `users`, `items`, `exchangeoffers`
+- Entity Framework integration for database operations
+- MVVM design pattern to separate UI and business logic
+- Data integrity ensured by foreign keys between tables
+- Real-time updates of exchange status and offers
 
-Notifications: Track and manage exchange requests and notifications.
+## Database Structure
 
-Password Recovery: Reset your password using your registered phone number.
+| Table Name       | Description                                                 |
+|------------------|-------------------------------------------------------------|
+| `users`          | Stores user info: ID, username, hashed password             |
+| `items`          | Stores items: ID, owner ID, name, description, category, image URL, exchange category |
+| `exchangeoffers` | Stores exchange proposals: offered item ID, requested item ID, sender ID, receiver ID, status (new, accepted, rejected) |
 
-Admin Panel: Manage users and items — view, modify, or delete entries.
+## How to Use
 
-Clean UI: Intuitive and modern interface optimized for user experience.
+1. Register or login with your phone number and password.
+2. Browse available items or filter by category.
+3. Add, edit, or remove your own items.
+4. Create exchange offers or respond to existing ones.
+5. Administrators can manage users and items through the admin panel.
 
-🏗️ Architecture Overview
-Client-Server Model: The client app connects to a server hosting a MySQL database.
+## Technologies
 
-Database: Stores data in three main tables — users, items, and exchangeoffers.
-
-Data Integrity: Foreign keys link users to items and exchange offers.
-
-Entity Framework: Used for ORM within the MVVM design pattern for clean separation of concerns.
-
-Real-Time Updates: Maintains data consistency and updates during exchanges.
-
-📂 Database Structure
-Table Name	Description
-users	User details: ID, username, hashed password.
-items	Item details: ID, owner ID, name, description, category, image link, exchange category.
-exchangeoffers	Exchange requests: offered item ID, requested item ID, sender, receiver, status (new, accepted, rejected).
-
-🎯 How It Works
-Sign Up / Login: Create an account or log into an existing one.
-
-Explore Items: Browse items available for exchange or filter by category.
-
-Manage Your Items: Add, edit, or remove your items.
-
-Exchange Process: Create exchange proposals or respond to offers on your items.
-
-Admin Controls: Admin users can oversee all users and items, managing the system’s integrity.
-
-🛠️ Technologies Used
-C# with WPF
-
-MVVM Design Pattern
-
-MySQL Database
-
-Entity Framework
-
-.NET Framework / .NET Core
-
+- C# with WPF
+- .NET Framework / .NET Core
+- MySQL Database
+- Entity Framework
+- MVVM Design Pattern
